@@ -1,0 +1,1236 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Healthcare Analytics for Doctor Visits</title><style>body{font:17px/1.6 Arial,sans-serif;color:#1a2733;max-width:1080px;margin:45px auto;padding:0 28px}h1{font-size:36px;color:#17658c}h2{margin-top:42px;color:#17658c}table{border-collapse:collapse;width:100%;font-size:15px;margin:16px 0 30px}th,td{text-align:right;padding:9px 12px;border-bottom:1px solid #d5e0e6}th{background:#edf5f8}th:first-child,td:first-child{text-align:left}pre{overflow:auto;padding:20px;line-height:1.5;font-size:15px;white-space:pre-wrap}.code{background:#eef4f7}.output{border-left:3px solid #2c8d79}.execution{margin:32px 0}@media print{body{max-width:none}pre{font-size:11px}h2{break-after:avoid}}</style><body><h1>Healthcare Analytics for Doctor Visits</h1><p>Analysis of the supplied CSV only. All 5,190 records are retained.</p><p><strong>Reading the results:</strong> Average visits means total visits divided by records in that group. These comparisons describe associations. They do not show that one factor causes more visits.</p><p><strong>Units:</strong> Age and income remain in the original CSV scale. Neither supplied reference gives a conversion rule. The observation period and health score direction are unspecified.</p><h2>Overall results</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Metric</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>records</td>
+      <td>5190.000000</td>
+    </tr>
+    <tr>
+      <td>columns</td>
+      <td>13.000000</td>
+    </tr>
+    <tr>
+      <td>missing_cells</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>duplicate_ids</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>duplicate_full_rows</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>matching_measurement_rows</td>
+      <td>1320.000000</td>
+    </tr>
+    <tr>
+      <td>total_visits</td>
+      <td>1566.000000</td>
+    </tr>
+    <tr>
+      <td>mean_visits</td>
+      <td>0.301734</td>
+    </tr>
+    <tr>
+      <td>median_visits</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>zero_visit_records</td>
+      <td>4141.000000</td>
+    </tr>
+    <tr>
+      <td>positive_visit_records</td>
+      <td>1049.000000</td>
+    </tr>
+    <tr>
+      <td>maximum_visits</td>
+      <td>9.000000</td>
+    </tr>
+    <tr>
+      <td>zero_visit_pct</td>
+      <td>79.788054</td>
+    </tr>
+    <tr>
+      <td>positive_visit_pct</td>
+      <td>20.211946</td>
+    </tr>
+    <tr>
+      <td>mean_among_visitors</td>
+      <td>1.492850</td>
+    </tr>
+  </tbody>
+</table><h2>Gender</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>gender</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>female</td>
+      <td>2702</td>
+      <td>978</td>
+      <td>0.361954</td>
+      <td>660</td>
+      <td>24.426351</td>
+    </tr>
+    <tr>
+      <td>male</td>
+      <td>2488</td>
+      <td>588</td>
+      <td>0.236334</td>
+      <td>389</td>
+      <td>15.635048</td>
+    </tr>
+  </tbody>
+</table><h2>Age in original CSV scale</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>age</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.190000</td>
+      <td>752</td>
+      <td>160</td>
+      <td>0.212766</td>
+      <td>114</td>
+      <td>15.159574</td>
+    </tr>
+    <tr>
+      <td>0.220000</td>
+      <td>1213</td>
+      <td>244</td>
+      <td>0.201154</td>
+      <td>174</td>
+      <td>14.344600</td>
+    </tr>
+    <tr>
+      <td>0.270000</td>
+      <td>523</td>
+      <td>135</td>
+      <td>0.258126</td>
+      <td>87</td>
+      <td>16.634799</td>
+    </tr>
+    <tr>
+      <td>0.320000</td>
+      <td>301</td>
+      <td>73</td>
+      <td>0.242525</td>
+      <td>50</td>
+      <td>16.611296</td>
+    </tr>
+    <tr>
+      <td>0.370000</td>
+      <td>146</td>
+      <td>36</td>
+      <td>0.246575</td>
+      <td>26</td>
+      <td>17.808219</td>
+    </tr>
+    <tr>
+      <td>0.420000</td>
+      <td>126</td>
+      <td>40</td>
+      <td>0.317460</td>
+      <td>22</td>
+      <td>17.460317</td>
+    </tr>
+    <tr>
+      <td>0.470000</td>
+      <td>181</td>
+      <td>49</td>
+      <td>0.270718</td>
+      <td>30</td>
+      <td>16.574586</td>
+    </tr>
+    <tr>
+      <td>0.520000</td>
+      <td>222</td>
+      <td>92</td>
+      <td>0.414414</td>
+      <td>54</td>
+      <td>24.324324</td>
+    </tr>
+    <tr>
+      <td>0.570000</td>
+      <td>273</td>
+      <td>109</td>
+      <td>0.399267</td>
+      <td>72</td>
+      <td>26.373626</td>
+    </tr>
+    <tr>
+      <td>0.620000</td>
+      <td>316</td>
+      <td>112</td>
+      <td>0.354430</td>
+      <td>77</td>
+      <td>24.367089</td>
+    </tr>
+    <tr>
+      <td>0.670000</td>
+      <td>315</td>
+      <td>119</td>
+      <td>0.377778</td>
+      <td>69</td>
+      <td>21.904762</td>
+    </tr>
+    <tr>
+      <td>0.720000</td>
+      <td>822</td>
+      <td>397</td>
+      <td>0.482968</td>
+      <td>274</td>
+      <td>33.333333</td>
+    </tr>
+  </tbody>
+</table><h2>Income in original CSV scale</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>income</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.000000</td>
+      <td>79</td>
+      <td>29</td>
+      <td>0.367089</td>
+      <td>13</td>
+      <td>16.455696</td>
+    </tr>
+    <tr>
+      <td>0.010000</td>
+      <td>35</td>
+      <td>17</td>
+      <td>0.485714</td>
+      <td>5</td>
+      <td>14.285714</td>
+    </tr>
+    <tr>
+      <td>0.060000</td>
+      <td>80</td>
+      <td>16</td>
+      <td>0.200000</td>
+      <td>12</td>
+      <td>15.000000</td>
+    </tr>
+    <tr>
+      <td>0.150000</td>
+      <td>249</td>
+      <td>87</td>
+      <td>0.349398</td>
+      <td>54</td>
+      <td>21.686747</td>
+    </tr>
+    <tr>
+      <td>0.250000</td>
+      <td>1195</td>
+      <td>503</td>
+      <td>0.420921</td>
+      <td>336</td>
+      <td>28.117155</td>
+    </tr>
+    <tr>
+      <td>0.350000</td>
+      <td>462</td>
+      <td>166</td>
+      <td>0.359307</td>
+      <td>101</td>
+      <td>21.861472</td>
+    </tr>
+    <tr>
+      <td>0.450000</td>
+      <td>400</td>
+      <td>122</td>
+      <td>0.305000</td>
+      <td>86</td>
+      <td>21.500000</td>
+    </tr>
+    <tr>
+      <td>0.550000</td>
+      <td>467</td>
+      <td>118</td>
+      <td>0.252677</td>
+      <td>80</td>
+      <td>17.130621</td>
+    </tr>
+    <tr>
+      <td>0.650000</td>
+      <td>455</td>
+      <td>112</td>
+      <td>0.246154</td>
+      <td>85</td>
+      <td>18.681319</td>
+    </tr>
+    <tr>
+      <td>0.750000</td>
+      <td>441</td>
+      <td>108</td>
+      <td>0.244898</td>
+      <td>75</td>
+      <td>17.006803</td>
+    </tr>
+    <tr>
+      <td>0.900000</td>
+      <td>589</td>
+      <td>122</td>
+      <td>0.207131</td>
+      <td>86</td>
+      <td>14.601019</td>
+    </tr>
+    <tr>
+      <td>1.100000</td>
+      <td>361</td>
+      <td>64</td>
+      <td>0.177285</td>
+      <td>45</td>
+      <td>12.465374</td>
+    </tr>
+    <tr>
+      <td>1.300000</td>
+      <td>162</td>
+      <td>45</td>
+      <td>0.277778</td>
+      <td>28</td>
+      <td>17.283951</td>
+    </tr>
+    <tr>
+      <td>1.500000</td>
+      <td>215</td>
+      <td>57</td>
+      <td>0.265116</td>
+      <td>43</td>
+      <td>20.000000</td>
+    </tr>
+  </tbody>
+</table><h2>Reported illnesses</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>illness</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1554</td>
+      <td>122</td>
+      <td>0.078507</td>
+      <td>105</td>
+      <td>6.756757</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1638</td>
+      <td>484</td>
+      <td>0.295482</td>
+      <td>321</td>
+      <td>19.597070</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>946</td>
+      <td>382</td>
+      <td>0.403805</td>
+      <td>258</td>
+      <td>27.272727</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>542</td>
+      <td>228</td>
+      <td>0.420664</td>
+      <td>166</td>
+      <td>30.627306</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>274</td>
+      <td>158</td>
+      <td>0.576642</td>
+      <td>100</td>
+      <td>36.496350</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>236</td>
+      <td>192</td>
+      <td>0.813559</td>
+      <td>99</td>
+      <td>41.949153</td>
+    </tr>
+  </tbody>
+</table><h2>Days of reduced activity</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>reduced</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>4454</td>
+      <td>819</td>
+      <td>0.183880</td>
+      <td>676</td>
+      <td>15.177369</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>177</td>
+      <td>63</td>
+      <td>0.355932</td>
+      <td>48</td>
+      <td>27.118644</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>108</td>
+      <td>62</td>
+      <td>0.574074</td>
+      <td>45</td>
+      <td>41.666667</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>74</td>
+      <td>81</td>
+      <td>1.094595</td>
+      <td>44</td>
+      <td>59.459459</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>45</td>
+      <td>36</td>
+      <td>0.800000</td>
+      <td>25</td>
+      <td>55.555556</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>40</td>
+      <td>51</td>
+      <td>1.275000</td>
+      <td>25</td>
+      <td>62.500000</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>17</td>
+      <td>20</td>
+      <td>1.176471</td>
+      <td>12</td>
+      <td>70.588235</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>38</td>
+      <td>45</td>
+      <td>1.184211</td>
+      <td>23</td>
+      <td>60.526316</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>17</td>
+      <td>20</td>
+      <td>1.176471</td>
+      <td>10</td>
+      <td>58.823529</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>7</td>
+      <td>12</td>
+      <td>1.714286</td>
+      <td>4</td>
+      <td>57.142857</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>12</td>
+      <td>24</td>
+      <td>2.000000</td>
+      <td>9</td>
+      <td>75.000000</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2</td>
+      <td>10</td>
+      <td>5.000000</td>
+      <td>2</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>6</td>
+      <td>12</td>
+      <td>2.000000</td>
+      <td>4</td>
+      <td>66.666667</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>5</td>
+      <td>20</td>
+      <td>4.000000</td>
+      <td>5</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>188</td>
+      <td>291</td>
+      <td>1.547872</td>
+      <td>117</td>
+      <td>62.234043</td>
+    </tr>
+  </tbody>
+</table><h2>Health score with unspecified direction</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>health</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>3026</td>
+      <td>603</td>
+      <td>0.199273</td>
+      <td>455</td>
+      <td>15.036352</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>823</td>
+      <td>276</td>
+      <td>0.335358</td>
+      <td>193</td>
+      <td>23.450790</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>446</td>
+      <td>170</td>
+      <td>0.381166</td>
+      <td>109</td>
+      <td>24.439462</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>273</td>
+      <td>114</td>
+      <td>0.417582</td>
+      <td>70</td>
+      <td>25.641026</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>187</td>
+      <td>100</td>
+      <td>0.534759</td>
+      <td>52</td>
+      <td>27.807487</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>132</td>
+      <td>70</td>
+      <td>0.530303</td>
+      <td>37</td>
+      <td>28.030303</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>104</td>
+      <td>65</td>
+      <td>0.625000</td>
+      <td>41</td>
+      <td>39.423077</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>61</td>
+      <td>56</td>
+      <td>0.918033</td>
+      <td>30</td>
+      <td>49.180328</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>42</td>
+      <td>20</td>
+      <td>0.476190</td>
+      <td>13</td>
+      <td>30.952381</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>32</td>
+      <td>21</td>
+      <td>0.656250</td>
+      <td>12</td>
+      <td>37.500000</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>21</td>
+      <td>32</td>
+      <td>1.523810</td>
+      <td>12</td>
+      <td>57.142857</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>24</td>
+      <td>20</td>
+      <td>0.833333</td>
+      <td>14</td>
+      <td>58.333333</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1.000000</td>
+      <td>11</td>
+      <td>57.894737</td>
+    </tr>
+  </tbody>
+</table><h2>Private healthcare flag</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>private</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>no</td>
+      <td>2892</td>
+      <td>889</td>
+      <td>0.307400</td>
+      <td>589</td>
+      <td>20.366528</td>
+    </tr>
+    <tr>
+      <td>yes</td>
+      <td>2298</td>
+      <td>677</td>
+      <td>0.294604</td>
+      <td>460</td>
+      <td>20.017406</td>
+    </tr>
+  </tbody>
+</table><h2>Financial-need support flag</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>freepoor</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>no</td>
+      <td>4968</td>
+      <td>1531</td>
+      <td>0.308172</td>
+      <td>1029</td>
+      <td>20.712560</td>
+    </tr>
+    <tr>
+      <td>yes</td>
+      <td>222</td>
+      <td>35</td>
+      <td>0.157658</td>
+      <td>20</td>
+      <td>9.009009</td>
+    </tr>
+  </tbody>
+</table><h2>Repatriation support flag</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>freerepat</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>no</td>
+      <td>4099</td>
+      <td>1057</td>
+      <td>0.257868</td>
+      <td>704</td>
+      <td>17.174921</td>
+    </tr>
+    <tr>
+      <td>yes</td>
+      <td>1091</td>
+      <td>509</td>
+      <td>0.466544</td>
+      <td>345</td>
+      <td>31.622365</td>
+    </tr>
+  </tbody>
+</table><h2>Chronic flag nchronic</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>nchronic</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>no</td>
+      <td>3098</td>
+      <td>843</td>
+      <td>0.272111</td>
+      <td>554</td>
+      <td>17.882505</td>
+    </tr>
+    <tr>
+      <td>yes</td>
+      <td>2092</td>
+      <td>723</td>
+      <td>0.345602</td>
+      <td>495</td>
+      <td>23.661568</td>
+    </tr>
+  </tbody>
+</table><h2>Long-term chronic flag lchronic</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>lchronic</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+      <th>visitors</th>
+      <th>share_with_visit_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>no</td>
+      <td>4585</td>
+      <td>1201</td>
+      <td>0.261941</td>
+      <td>837</td>
+      <td>18.255180</td>
+    </tr>
+    <tr>
+      <td>yes</td>
+      <td>605</td>
+      <td>365</td>
+      <td>0.603306</td>
+      <td>212</td>
+      <td>35.041322</td>
+    </tr>
+  </tbody>
+</table><h2>Visit distribution</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>visits</th>
+      <th>records</th>
+      <th>share_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>4141</td>
+      <td>79.788054</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>782</td>
+      <td>15.067437</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>174</td>
+      <td>3.352601</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>30</td>
+      <td>0.578035</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>24</td>
+      <td>0.462428</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>9</td>
+      <td>0.173410</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>12</td>
+      <td>0.231214</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>12</td>
+      <td>0.231214</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>5</td>
+      <td>0.096339</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>1</td>
+      <td>0.019268</td>
+    </tr>
+  </tbody>
+</table><h2>Any reduced activity days</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>activity_affected</th>
+      <th>records</th>
+      <th>total_visits</th>
+      <th>mean_visits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>No reduced days</td>
+      <td>4454</td>
+      <td>819</td>
+      <td>0.183880</td>
+    </tr>
+    <tr>
+      <td>One or more reduced days</td>
+      <td>736</td>
+      <td>747</td>
+      <td>1.014946</td>
+    </tr>
+  </tbody>
+</table><h2>Numerical summary</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>statistic</th>
+      <th>visits</th>
+      <th>age</th>
+      <th>income</th>
+      <th>illness</th>
+      <th>reduced</th>
+      <th>health</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>5,190.000000</td>
+      <td>5,190.000000</td>
+      <td>5,190.000000</td>
+      <td>5,190.000000</td>
+      <td>5,190.000000</td>
+      <td>5,190.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>0.301734</td>
+      <td>0.406385</td>
+      <td>0.583160</td>
+      <td>1.431985</td>
+      <td>0.861850</td>
+      <td>1.217534</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>0.798134</td>
+      <td>0.204782</td>
+      <td>0.368907</td>
+      <td>1.384152</td>
+      <td>2.887628</td>
+      <td>2.124266</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000</td>
+      <td>0.190000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>0.000000</td>
+      <td>0.220000</td>
+      <td>0.250000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>0.000000</td>
+      <td>0.320000</td>
+      <td>0.550000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>0.000000</td>
+      <td>0.620000</td>
+      <td>0.900000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>9.000000</td>
+      <td>0.720000</td>
+      <td>1.500000</td>
+      <td>5.000000</td>
+      <td>14.000000</td>
+      <td>12.000000</td>
+    </tr>
+  </tbody>
+</table><h2>Pearson correlations with doctor visits</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>field</th>
+      <th>pearson_r_with_visits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>age</td>
+      <td>0.124537</td>
+    </tr>
+    <tr>
+      <td>income</td>
+      <td>-0.076840</td>
+    </tr>
+    <tr>
+      <td>illness</td>
+      <td>0.223552</td>
+    </tr>
+    <tr>
+      <td>reduced</td>
+      <td>0.418954</td>
+    </tr>
+    <tr>
+      <td>health</td>
+      <td>0.193272</td>
+    </tr>
+  </tbody>
+</table><h2>Data quality</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>check</th>
+      <th>result</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Source records</td>
+      <td>5190</td>
+      <td>Retain all records</td>
+    </tr>
+    <tr>
+      <td>Missing cells</td>
+      <td>0</td>
+      <td>No filling performed</td>
+    </tr>
+    <tr>
+      <td>Duplicate complete rows including ID</td>
+      <td>0</td>
+      <td>No removal needed</td>
+    </tr>
+    <tr>
+      <td>Duplicate identifiers</td>
+      <td>0</td>
+      <td>No removal needed</td>
+    </tr>
+    <tr>
+      <td>Repeated measurements excluding ID</td>
+      <td>1320</td>
+      <td>Retain: different IDs can have matching measurements</td>
+    </tr>
+    <tr>
+      <td>Age conversion</td>
+      <td>None</td>
+      <td>No conversion rule in either supplied reference</td>
+    </tr>
+    <tr>
+      <td>Income conversion</td>
+      <td>None</td>
+      <td>No units or conversion rule supplied</td>
+    </tr>
+    <tr>
+      <td>Health score direction</td>
+      <td>Unspecified</td>
+      <td>Do not label higher scores better or worse</td>
+    </tr>
+  </tbody>
+</table><h2>Actual executed code and output</h2><p>The following code was run against the supplied CSV. The outputs below were captured from that execution.</p><section class="execution"><pre class="code">from pathlib import Path
+import pandas as pd
+import hashlib
+source_name = &#x27;1776250375-P2-Healthcare Analytics for Doctor Visits (1).csv&#x27;
+source = next((p for p in [Path.cwd()/source_name, Path.cwd().parent/source_name] if p.exists()), None)
+if source is None:
+    raise FileNotFoundError(&#x27;Keep the project folder beside the original CSV.&#x27;)
+df = pd.read_csv(source)
+print(&#x27;Records:&#x27;, len(df), &#x27;Columns:&#x27;, len(df.columns))
+print(&#x27;CSV SHA256:&#x27;, hashlib.sha256(source.read_bytes()).hexdigest())
+print(df.head().to_string(index=False))</pre><pre class="output">Records: 5190 Columns: 13
+CSV SHA256: 6967773d1f794bc32138478352c3ed507d87faedc73174b1cd179bd11efab225
+ Unnamed: 0  visits gender  age  income  illness  reduced  health private freepoor freerepat nchronic lchronic
+          1       1 female 0.19    0.55        1        4       1     yes       no        no       no       no
+          2       1 female 0.19    0.45        1        2       1     yes       no        no       no       no
+          3       1   male 0.19    0.90        3        0       0      no       no        no       no       no
+          4       1   male 0.19    0.15        1        0       0      no       no        no       no       no
+          5       1   male 0.19    0.45        2        5       1      no       no        no      yes       no
+</pre></section><section class="execution"><pre class="code">print(&#x27;Missing cells:&#x27;, int(df.isna().sum().sum()))
+print(&#x27;Duplicate IDs:&#x27;, int(df.iloc[:, 0].duplicated().sum()))
+print(&#x27;Duplicate complete rows:&#x27;, int(df.duplicated().sum()))
+print(&#x27;Repeated measurements excluding ID:&#x27;, int(df.iloc[:, 1:].duplicated().sum()))
+print(df[[&#x27;visits&#x27;,&#x27;age&#x27;,&#x27;income&#x27;,&#x27;illness&#x27;,&#x27;reduced&#x27;,&#x27;health&#x27;]].describe().to_string())</pre><pre class="output">Missing cells: 0
+Duplicate IDs: 0
+Duplicate complete rows: 0
+Repeated measurements excluding ID: 1320
+            visits          age       income      illness      reduced       health
+count  5190.000000  5190.000000  5190.000000  5190.000000  5190.000000  5190.000000
+mean      0.301734     0.406385     0.583160     1.431985     0.861850     1.217534
+std       0.798134     0.204782     0.368907     1.384152     2.887628     2.124266
+min       0.000000     0.190000     0.000000     0.000000     0.000000     0.000000
+25%       0.000000     0.220000     0.250000     0.000000     0.000000     0.000000
+50%       0.000000     0.320000     0.550000     1.000000     0.000000     0.000000
+75%       0.000000     0.620000     0.900000     2.000000     0.000000     2.000000
+max       9.000000     0.720000     1.500000     5.000000    14.000000    12.000000
+</pre></section><section class="execution"><pre class="code">print(&#x27;Total visits:&#x27;, int(df.visits.sum()))
+print(&#x27;Average visits per record:&#x27;, round(df.visits.mean(), 6))
+print(&#x27;Median visits:&#x27;, df.visits.median())
+print(&#x27;Records with zero visits:&#x27;, int((df.visits == 0).sum()))
+print(&#x27;Share with at least one visit (%):&#x27;, round((df.visits &gt; 0).mean()*100, 6))
+print(df.visits.value_counts().sort_index().to_string())</pre><pre class="output">Total visits: 1566
+Average visits per record: 0.301734
+Median visits: 0.0
+Records with zero visits: 4141
+Share with at least one visit (%): 20.211946
+visits
+0    4141
+1     782
+2     174
+3      30
+4      24
+5       9
+6      12
+7      12
+8       5
+9       1
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;gender&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">        records  total_visits  mean_visits  visitors  share_with_visit_pct
+gender                                                                    
+female     2702           978     0.361954       660             24.426351
+male       2488           588     0.236334       389             15.635048
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;illness&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">         records  total_visits  mean_visits  visitors  share_with_visit_pct
+illness                                                                    
+0           1554           122     0.078507       105              6.756757
+1           1638           484     0.295482       321             19.597070
+2            946           382     0.403805       258             27.272727
+3            542           228     0.420664       166             30.627306
+4            274           158     0.576642       100             36.496350
+5            236           192     0.813559        99             41.949153
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;reduced&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">         records  total_visits  mean_visits  visitors  share_with_visit_pct
+reduced                                                                    
+0           4454           819     0.183880       676             15.177369
+1            177            63     0.355932        48             27.118644
+2            108            62     0.574074        45             41.666667
+3             74            81     1.094595        44             59.459459
+4             45            36     0.800000        25             55.555556
+5             40            51     1.275000        25             62.500000
+6             17            20     1.176471        12             70.588235
+7             38            45     1.184211        23             60.526316
+8             17            20     1.176471        10             58.823529
+9              7            12     1.714286         4             57.142857
+10            12            24     2.000000         9             75.000000
+11             2            10     5.000000         2            100.000000
+12             6            12     2.000000         4             66.666667
+13             5            20     4.000000         5            100.000000
+14           188           291     1.547872       117             62.234043
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;nchronic&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">          records  total_visits  mean_visits  visitors  share_with_visit_pct
+nchronic                                                                    
+no           3098           843     0.272111       554             17.882505
+yes          2092           723     0.345602       495             23.661568
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;lchronic&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">          records  total_visits  mean_visits  visitors  share_with_visit_pct
+lchronic                                                                    
+no           4585          1201     0.261941       837             18.255180
+yes           605           365     0.603306       212             35.041322
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;private&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">         records  total_visits  mean_visits  visitors  share_with_visit_pct
+private                                                                    
+no          2892           889     0.307400       589             20.366528
+yes         2298           677     0.294604       460             20.017406
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;freepoor&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">          records  total_visits  mean_visits  visitors  share_with_visit_pct
+freepoor                                                                    
+no           4968          1531     0.308172      1029             20.712560
+yes           222            35     0.157658        20              9.009009
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;freerepat&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">           records  total_visits  mean_visits  visitors  share_with_visit_pct
+freerepat                                                                    
+no            4099          1057     0.257868       704             17.174921
+yes           1091           509     0.466544       345             31.622365
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;age&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">      records  total_visits  mean_visits  visitors  share_with_visit_pct
+age                                                                     
+0.19      752           160     0.212766       114             15.159574
+0.22     1213           244     0.201154       174             14.344600
+0.27      523           135     0.258126        87             16.634799
+0.32      301            73     0.242525        50             16.611296
+0.37      146            36     0.246575        26             17.808219
+0.42      126            40     0.317460        22             17.460317
+0.47      181            49     0.270718        30             16.574586
+0.52      222            92     0.414414        54             24.324324
+0.57      273           109     0.399267        72             26.373626
+0.62      316           112     0.354430        77             24.367089
+0.67      315           119     0.377778        69             21.904762
+0.72      822           397     0.482968       274             33.333333
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;income&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">        records  total_visits  mean_visits  visitors  share_with_visit_pct
+income                                                                    
+0.00         79            29     0.367089        13             16.455696
+0.01         35            17     0.485714         5             14.285714
+0.06         80            16     0.200000        12             15.000000
+0.15        249            87     0.349398        54             21.686747
+0.25       1195           503     0.420921       336             28.117155
+0.35        462           166     0.359307       101             21.861472
+0.45        400           122     0.305000        86             21.500000
+0.55        467           118     0.252677        80             17.130621
+0.65        455           112     0.246154        85             18.681319
+0.75        441           108     0.244898        75             17.006803
+0.90        589           122     0.207131        86             14.601019
+1.10        361            64     0.177285        45             12.465374
+1.30        162            45     0.277778        28             17.283951
+1.50        215            57     0.265116        43             20.000000
+</pre></section><section class="execution"><pre class="code">summary = df.groupby(&#x27;health&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;), total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;), mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;), visitors=(&#x27;visits&#x27;,lambda s: int((s&gt;0).sum())))
+summary[&#x27;share_with_visit_pct&#x27;] = 100*summary.visitors/summary.records
+assert summary.records.sum() == len(df)
+assert summary.total_visits.sum() == df.visits.sum()
+print(summary.to_string(float_format=lambda v: f&#x27;{v:.6f}&#x27;))</pre><pre class="output">        records  total_visits  mean_visits  visitors  share_with_visit_pct
+health                                                                    
+0          3026           603     0.199273       455             15.036352
+1           823           276     0.335358       193             23.450790
+2           446           170     0.381166       109             24.439462
+3           273           114     0.417582        70             25.641026
+4           187           100     0.534759        52             27.807487
+5           132            70     0.530303        37             28.030303
+6           104            65     0.625000        41             39.423077
+7            61            56     0.918033        30             49.180328
+8            42            20     0.476190        13             30.952381
+9            32            21     0.656250        12             37.500000
+10           21            32     1.523810        12             57.142857
+11           24            20     0.833333        14             58.333333
+12           19            19     1.000000        11             57.894737
+</pre></section><section class="execution"><pre class="code">affected = df.assign(activity_affected=df.reduced.gt(0).map({False:&#x27;No reduced days&#x27;, True:&#x27;One or more reduced days&#x27;}))
+print(affected.groupby(&#x27;activity_affected&#x27;).agg(records=(&#x27;visits&#x27;,&#x27;size&#x27;),total_visits=(&#x27;visits&#x27;,&#x27;sum&#x27;),mean_visits=(&#x27;visits&#x27;,&#x27;mean&#x27;)).to_string())</pre><pre class="output">                          records  total_visits  mean_visits
+activity_affected                                           
+No reduced days              4454           819     0.183880
+One or more reduced days      736           747     1.014946
+</pre></section><h2>Limits</h2><p>These are unweighted, unadjusted comparisons within this dataset. We cannot identify unmet medical need from zero visits, infer healthcare program effects, interpret the health score as better or worse, or convert age and income without a supplied rule. Matching measurements do not prove duplicate people. No external data or invented results were used.</p><p>Source: 1776250375-P2-Healthcare Analytics for Doctor Visits (1).csv<br>SHA256: 6967773d1f794bc32138478352c3ed507d87faedc73174b1cd179bd11efab225</p></body></html>
