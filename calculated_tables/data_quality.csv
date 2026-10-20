@@ -1,0 +1,9 @@
+check,result,action
+Source records,5190,Retain all records
+Missing cells,0,No filling performed
+Duplicate complete rows including ID,0,No removal needed
+Duplicate identifiers,0,No removal needed
+Repeated measurements excluding ID,1320,Retain: different IDs can have matching measurements
+Age conversion,None,No conversion rule in either supplied reference
+Income conversion,None,No units or conversion rule supplied
+Health score direction,Unspecified,Do not label higher scores better or worse
