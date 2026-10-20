@@ -47,7 +47,3 @@ python run_analysis.py
 The script recreates the calculation tables, summary metrics, notebook and offline HTML report from the original CSV. The notebook can also be run in Jupyter or VS Code with a Python kernel.
 
 Average visits = total visits in a group / records in that group. Share with a visit (%) = 100 × records with visits greater than zero / records in the group. Reported summary averages are rounded to three decimals and shares to one decimal. Detailed tables retain more precision.
-
-## Source information
-
-Dataset origin and redistribution license were not included in the supplied materials; no ownership or open-data license is asserted here.
